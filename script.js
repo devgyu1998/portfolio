@@ -31,4 +31,34 @@
   window.addEventListener('hashchange', scheduleUpdate);
   window.addEventListener('load', scheduleUpdate);
   updateCurrentSection();
+
+  const copyButton = document.querySelector('.copy-email');
+  const email = document.getElementById('contact-email');
+  const copyStatus = document.querySelector('.copy-status');
+  let resetCopyTimer;
+
+  copyButton.addEventListener('click', async () => {
+    window.clearTimeout(resetCopyTimer);
+    copyButton.disabled = true;
+    copyStatus.textContent = '';
+    try {
+      await navigator.clipboard.writeText(email.textContent.trim());
+      copyStatus.textContent = '복사되었습니다';
+      resetCopyTimer = window.setTimeout(() => {
+        copyStatus.textContent = '';
+      }, 2500);
+    } catch {
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNodeContents(email);
+      selection.removeAllRanges();
+      selection.addRange(range);
+      copyStatus.textContent = '자동 복사가 제한됐어요. 선택된 주소를 직접 복사해 주세요.';
+      resetCopyTimer = window.setTimeout(() => {
+        copyStatus.textContent = '';
+      }, 5000);
+    } finally {
+      copyButton.disabled = false;
+    }
+  });
 })();
