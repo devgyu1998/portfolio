@@ -81,15 +81,18 @@
         <header class="section-label"><span class="number">02</span><h2 id="projects-title">프로젝트</h2></header>
         <div class="section-content">
           <article class="project">
-            <div class="project-kind">WORK PROJECT / 오케스트로 AGI</div><h3>장병체감형 챗봇 서비스</h3>
-            <p class="project-meta">2026.03 — 2026.10<br>담당: 채팅 API, 관리자 화면, DB 설계 및 배포</p>
-            <p class="project-description">장병이 이용하는 AI 챗봇 서비스입니다. Clarinet을 고객 요구사항에 맞게 수정하고, 외부 업체가 만든 채팅 화면에 필요한 API와 서비스 운영 기능을 개발했습니다.</p>
-            <div class="tags"><span class="tag">Java / Spring MVC</span><span class="tag">JSP / JavaScript</span><span class="tag">MySQL</span><span class="tag">SSE</span><span class="tag">Docker / Kubernetes</span></div>
-            <dl class="case-details">
-              <dt>채팅</dt><dd>SSE 답변, 대화 이력, 참고문서, 신고·만족도 API를 개발했습니다. 여러 기기와 대화방의 사용량을 사용자 단위로 합산하고, 동시 요청을 고려해 일일 채팅 한도를 적용했습니다.</dd>
-              <dt>관리</dt><dd>FAQ 등록과 AI 서버 반영, 미완료 작업 복구를 구현했습니다. 모델 학습 요청·취소·결과 조회와 사용자 정보 연동, 사용 통계 기능을 개발했습니다.</dd>
-              <dt>배포</dt><dd>보안 점검 사항을 수정하고 Tomcat 이미지와 YAML을 작성했습니다. 네이버 클라우드의 기존 Kubernetes·Argo CD 환경에 배포했습니다.</dd>
-            </dl>
+            <div class="project-kind">WORK PROJECT / 오케스트로 AGI</div><h3>장병체감형 원스톱 서비스 플랫폼 LLM 기반 AI챗봇 서비스 구축</h3>
+            <p class="project-meta">2026.03 — 2026.10</p>
+            <p class="project-description">자사 제품 Clarinet을 기반으로 장병 대상 AI 챗봇 서비스를 구축했습니다. 사용자 화면에 제공하는 채팅 API와 관리자 웹을 개발하며, DB 설계부터 프론트엔드·백엔드 개발, AI API 연동과 배포까지 담당했습니다.</p>
+            <ul class="responsibilities">
+              <li><strong>채팅 API·사용자 정보 연동</strong><br>AI 답변을 실시간으로 전달하는 SSE 기반 채팅 API와 대화 이력·참고문서 조회 API를 개발했습니다. 외부 플랫폼의 사용자 정보를 서비스 계정과 연계해, 기관·소속·신분별 사용자 관리와 이용 통계에 활용할 수 있도록 했습니다.</li>
+              <li><strong>채팅 이용 정책 관리</strong><br>반복·유사 질문을 제한하고 사용자별 일일 채팅 한도를 관리하는 기능을 개발했습니다. 운영자가 반복 질문의 허용 횟수와 제한 시간, 일일 한도를 직접 조정할 수 있도록 설정 DB와 관리자 화면·API를 구현했습니다. 유사 질문 여부는 AI 서버의 검사 결과를 활용했으며, 일일 사용량은 여러 기기와 대화방의 이용 내역을 사용자 단위로 합산하고 동시 요청을 고려해 제한하도록 처리했습니다.</li>
+              <li><strong>관리자 웹·DB 설계</strong><br>서비스에 필요한 데이터 모델과 테이블·관계를 설계하고, 사용자·권한과 데이터 관리 기능의 화면·API를 개발했습니다. FAQ, 학습 데이터와 모델 관리 기능을 추가·수정하며 기존 Clarinet의 관리자 웹을 서비스 운영 방식에 맞게 구성했습니다.</li>
+              <li><strong>AI 연동·작업 복구</strong><br>문서 파싱·임베딩과 모델 학습 API를 연동해 처리 상태와 결과를 관리자 웹에서 확인할 수 있도록 구현했습니다. AI 서버 반영 결과를 관리하고, 애플리케이션 재기동 시 미완료 작업을 복구하도록 개발했습니다.</li>
+              <li><strong>보안 대응·클라우드 배포</strong><br>사용자별 데이터·파일 접근 권한과 채팅 이력의 소유자를 검증하는 로직을 보완하고, 보안 점검에서 확인된 취약점을 수정했습니다. Tomcat 기반 Docker 이미지와 배포용 YAML을 작성해 네이버 클라우드의 기존 Kubernetes·Argo CD 환경에 애플리케이션을 배포했습니다.</li>
+            </ul>
+            <p class="project-meta">사용 기술</p>
+            <div class="tags"><span class="tag">Java</span><span class="tag">전자정부프레임워크</span><span class="tag">Spring MVC / Security</span><span class="tag">JSP</span><span class="tag">JavaScript / jQuery</span><span class="tag">MyBatis</span><span class="tag">MySQL</span><span class="tag">WebClient / Reactor</span><span class="tag">SSE</span><span class="tag">Tomcat</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Argo CD</span><span class="tag">네이버 클라우드</span></div>
           </article>
           <article class="project">
             <div class="project-kind">WORK PROJECT / 오케스트로 AGI</div><h3>한국교통안전공단 AI 업무지원·지식관리 플랫폼</h3>
