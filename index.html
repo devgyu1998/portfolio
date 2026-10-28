@@ -95,15 +95,19 @@
             <div class="tags"><span class="tag">Java</span><span class="tag">전자정부프레임워크</span><span class="tag">Spring MVC / Security</span><span class="tag">JSP</span><span class="tag">JavaScript / jQuery</span><span class="tag">MyBatis</span><span class="tag">MySQL</span><span class="tag">WebClient / Reactor</span><span class="tag">SSE</span><span class="tag">Tomcat</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Argo CD</span><span class="tag">네이버 클라우드</span></div>
           </article>
           <article class="project">
-            <div class="project-kind">WORK PROJECT / 오케스트로 AGI</div><h3>한국교통안전공단 AI 업무지원·지식관리 플랫폼</h3>
-            <p class="project-meta">구축 2025.06 — 2025.12 · 추가 개발 2026.01 — 2026.07<br>담당: DB 설계, 화면·서버 개발, AI API 연동 및 현장 배포</p>
-            <p class="project-description">기관 문서를 등록·승인하고, AI 채팅과 보고서 작성 등에 활용하는 업무지원 플랫폼입니다. 이 프로젝트에서 개발한 기능은 자사 제품 Clarinet의 기반이 됐습니다.</p>
-            <div class="tags"><span class="tag">전자정부프레임워크</span><span class="tag">MyBatis / MariaDB</span><span class="tag">WebClient / SSE</span><span class="tag">Tomcat</span><span class="tag">Kubernetes</span></div>
-            <dl class="case-details">
-              <dt>문서</dt><dd>문서·메타데이터·데이터셋·사용자 권한의 DB와 관리 기능을 개발했습니다. 문서 등록·승인·버전 관리, EP 로그인과 조직 정보 동기화를 구현했습니다.</dd>
-              <dt>AI 연동</dt><dd>실시간 답변, 근거 문서 열람, 문서 파싱·임베딩 상태 조회를 구현했습니다. 추가 개발에서는 첨부문서 기반 보고서 작성과 운수지도 분석 API를 연동했습니다.</dd>
-              <dt>배포</dt><dd>본사에 3개월 상주하며 폐쇄망에 Tomcat·MariaDB를 설치하고 배포했습니다. 이후 DB는 VM에 남겨두고 애플리케이션을 기존 Kubernetes 환경으로 옮겼습니다.</dd>
-            </dl>
+            <div class="project-kind">WORK PROJECT / 오케스트로 AGI</div><h3>TS AI 공용플랫폼 구축</h3>
+            <p class="project-meta">2025.06 — 2026.07</p>
+            <p class="project-description">한국교통안전공단의 업무 자료를 관리하고, 이를 활용한 AI 질의응답과 보고서 작성을 지원하는 플랫폼을 구축했습니다. 현재 Clarinet의 기반이 된 프로젝트로, DB 설계부터 프론트엔드·백엔드 개발, AI API 연동과 배포까지 웹 개발 전반을 전담했습니다.</p>
+            <ul class="responsibilities">
+              <li><strong>데이터·문서 관리</strong><br>DCAT 3.0을 기준으로 데이터·데이터셋·컬렉션을 관리할 수 있도록 DB를 설계하고 화면·API를 개발했습니다. 문서 등록과 메타데이터 입력, 승인·반려, 버전·변경 이력 관리 기능을 구현했습니다. 문서 파싱·임베딩 API를 연동해 처리 상태와 오류를 확인하고 변환된 문서를 조회할 수 있도록 했습니다.</li>
+              <li><strong>AI 서비스 연동</strong><br>AI 서버와 연동해 답변을 실시간으로 전달하는 SSE 기반 채팅 기능을 개발했습니다. 대화 이력과 답변에 참고한 문서를 조회하고, 질문에 활용할 문서를 직접 지정할 수 있도록 구현했습니다. 첨부문서 기반 보고서 생성·수정과 운수지도 AI 분석 API를 연동하고, 요청과 결과 조회에 필요한 화면·백엔드를 개발했습니다.</li>
+              <li><strong>AI 스튜디오 개발</strong><br>AI 서비스의 참고 데이터와 프롬프트, 응답 길이 등을 설정하는 화면·API를 개발했습니다. 예시 질문과 단계별 질문 안내를 관리하는 질문 도우미를 구현했습니다. 문서를 선택해 AI 서버에 학습 데이터 생성을 요청하는 기능도 개발했습니다.</li>
+              <li><strong>사용자·권한 관리</strong><br>기관의 로그인 시스템을 연동하고, 조직 정보를 동기화해 부서·사용자 정보에 반영했습니다. 사용자 권한에 따라 메뉴와 데이터 접근을 제한하고, 사용자 활동과 대화 이력을 조회하는 관리 기능을 개발했습니다.</li>
+              <li><strong>게시판·대시보드 개발</strong><br>공지사항과 문의·답변 게시판, 사용자 알림 기능을 개발했습니다. AI 서비스 이용 현황과 만족도, 데이터 등록 현황, 부서별 이용 통계를 확인할 수 있는 대시보드를 구현했습니다.</li>
+              <li><strong>폐쇄망 개발·배포 및 보안 대응</strong><br>고객사에 3개월간 상주하며 폐쇄망에서 개발하고, VM에 Tomcat·MariaDB를 오프라인으로 설치해 서비스를 배포했습니다. 이후 Docker 이미지와 배포용 YAML을 작성해 애플리케이션을 기존 Kubernetes 환경으로 이전했습니다. 보안 점검에서 확인된 취약점도 수정했습니다.</li>
+            </ul>
+            <p class="project-meta">사용 기술</p>
+            <div class="tags"><span class="tag">Java</span><span class="tag">전자정부프레임워크</span><span class="tag">Spring MVC</span><span class="tag">Spring Security</span><span class="tag">JSP/JSTL</span><span class="tag">JavaScript/jQuery</span><span class="tag">MyBatis</span><span class="tag">MariaDB</span><span class="tag">SSE</span><span class="tag">Tomcat</span><span class="tag">Docker</span><span class="tag">Kubernetes</span></div>
           </article>
           <article class="project">
             <div class="project-kind">WORK PROJECT / 오케스트로 AGI</div><h3>SC301 AI 상담·예약 챗봇</h3>
