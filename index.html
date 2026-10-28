@@ -163,11 +163,15 @@
           </article>
           <article class="project">
             <div class="project-kind">TEAM PROJECT / SSAFY</div><h3>GrabPic · 실시간 AI 생태도감</h3>
-            <!-- 노션 요약은 2024.02~04, 상세 속성은 2024.04~05로 달라 월은 확인 후 반영합니다. -->
-            <p class="project-meta">2024<br>담당: 회원·카메라·도감 화면과 실시간 개체 분석 기능</p>
-            <p class="project-description">카메라에 비친 동식물을 실시간으로 인식하고 개인 도감에 등록하는 서비스입니다. 수집한 개체의 종류와 위치를 차트와 지도로 확인할 수 있습니다.</p>
-            <div class="tags"><span class="tag">React / TypeScript</span><span class="tag">TensorFlow</span><span class="tag">Recoil</span><span class="tag">Tailwind CSS</span></div>
-            <dl class="case-details"><dt>구현</dt><dd>TensorFlow로 YOLO 모델을 호출해 카메라 영상을 분석하고, 인식한 개체의 이름·영역을 Canvas에 표시했습니다. 촬영 전 프레임을 큐에 저장하는 기능과 도감 등록 화면을 개발했습니다.</dd><dt>인증</dt><dd>회원가입·로그인·정보 수정 화면을 구현하고, 액세스 토큰 만료 시 갱신과 자동 로그인을 처리했습니다.</dd></dl>
+            <p class="project-meta">2024.02 — 2024.04</p>
+            <p class="project-description">카메라에 비친 동식물을 AI로 인식하고, 촬영한 개체를 개인 도감에 기록하는 서비스를 팀 프로젝트로 개발했습니다. React·TypeScript로 AI 카메라와 도감 등록, 회원 화면을 구현했습니다.</p>
+            <ul class="responsibilities">
+              <li><strong>실시간 AI 카메라 구현</strong><br>사용자 기기의 카메라 영상을 불러오고, TensorFlow로 YOLO 모델을 실행해 동식물을 실시간으로 인식하는 기능을 구현했습니다. 인식된 대상의 이름과 영역을 Canvas에 표시하고, 터치 이벤트를 구현했습니다.</li>
+              <li><strong>촬영 데이터 처리·도감 등록</strong><br>촬영 직전의 영상 프레임을 큐에 저장해 AI 처리에 사용할 수 있도록 구현했습니다. 촬영한 개체의 정보를 확인하고 도감에 등록하거나 취소할 수 있도록 화면을 개발했습니다.</li>
+              <li><strong>회원 화면·인증 연동</strong><br>회원가입·로그인·로그아웃, 회원정보 수정·탈퇴와 비밀번호 재설정 화면을 개발하고 백엔드 API를 연동했습니다. 리프레시 토큰을 이용한 액세스 토큰 갱신과 자동 로그인 기능도 구현했습니다.</li>
+            </ul>
+            <p class="project-meta">사용 기술</p>
+            <div class="tags"><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">TensorFlow</span><span class="tag">YOLO</span><span class="tag">Recoil</span><span class="tag">Tailwind CSS</span><span class="tag">styled-components</span><span class="tag">Canvas</span></div>
             <div class="project-links"><a href="https://tide-penguin-bbe.notion.site/GrabPic-c21a61bfca94451781079ef900635ede" target="_blank" rel="noopener noreferrer">2024 프로젝트 기록 ↗</a></div>
           </article>
           <article class="project">
