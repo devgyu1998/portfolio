@@ -135,15 +135,17 @@
             <div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">가비아 호스팅</span></div>
           </article>
           <article class="project">
-            <div class="project-kind">WORK PROJECT / 오케스트로 AGI</div><h3>수원시 AI·LLM 챗봇 서비스</h3>
-            <p class="project-meta">2024.07 — 2025.02<br>담당: DB 설계, 화면·서버 개발, AI API 연동 및 폐쇄망 배포</p>
-            <p class="project-description">문서와 조례를 바탕으로 질문에 답하고 관련 자료를 보여주는 AI 챗봇입니다. 서비스 구축에 이어 자사 제품 G-AIDSP의 웹 개발과 GS 인증 대응에 참여했습니다.</p>
-            <div class="tags"><span class="tag">전자정부프레임워크</span><span class="tag">JSP / jQuery</span><span class="tag">MyBatis / MariaDB</span><span class="tag">RestTemplate</span><span class="tag">Tomcat</span></div>
-            <dl class="case-details">
-              <dt>챗봇</dt><dd>퍼블리싱된 화면을 JSP로 이관하고 Java 서버와 연결했습니다. 질의응답과 처리 상태, 참고문서·PDF 열람, 문서 간 연관 관계 표시를 구현했습니다.</dd>
-              <dt>관리</dt><dd>문서·조례·메타데이터의 DB와 관리 기능을 개발했습니다. 승인·삭제 예약, 계정 관리와 이용 통계를 구현하고 GS 인증 과정에서 확인된 취약점을 수정했습니다.</dd>
-              <dt>배포</dt><dd>폐쇄망에 Tomcat·MariaDB를 오프라인 설치하고 WAR를 배포했습니다. 이 서비스를 기반으로 개발한 G-AIDSP는 GS 인증 1등급을 획득했습니다.</dd>
-            </dl>
+            <div class="project-kind">WORK PROJECT / 오케스트로 AGI</div><h3>수원시 복지민원 검색 서비스</h3>
+            <p class="project-meta">2024.07 — 2025.02</p>
+            <p class="project-description">수원시 복지 문서와 조례를 바탕으로 질문에 답하고 근거 자료를 제공하는 LLM·RAG 기반 검색 서비스를 구축했습니다. DB 설계부터 사용자·관리자 화면과 백엔드 개발, AI 서버 API 연동, 폐쇄망 설치·배포까지 웹 개발 전반을 담당했습니다.</p>
+            <ul class="responsibilities">
+              <li><strong>AI 질의응답·근거 자료 제공</strong><br>AI 서버와 연동해 질문에 대한 답변과 참고문서를 제공하는 화면·API를 개발했습니다. 근거 문서의 열람·다운로드와 키워드·문서 간 연관 맵을 구현해 관련 자료를 함께 확인할 수 있도록 했습니다. 관리자 화면에서는 문서 기반 Q&amp;A 생성을 요청하고, 생성 결과를 내려받을 수 있도록 AI API를 연동했습니다.</li>
+              <li><strong>문서·조례 관리와 AI 연동</strong><br>AI 답변에 사용할 문서와 조례를 등록·승인하고, 분류와 담당 부서 등 메타데이터를 관리하는 화면·API를 개발했습니다. 승인한 문서를 기존 자료에 추가하거나 새 문서로 교체하고, 삭제한 자료는 AI 서버에서도 제거되도록 연동했습니다. 반영 작업은 야간에 순차 처리하거나 관리자가 즉시 실행할 수 있도록 구현했습니다.</li>
+              <li><strong>사용자 관리·서비스 운영</strong><br>관리자 로그인과 계정 관리, 비밀번호 변경·재설정, 로그인 실패 시 잠금 기능을 개발했습니다. 예시 질문·FAQ·도움말과 행정복지센터 정보를 관리하는 화면을 개발하고, 질문·답변 이력과 서비스 이용 현황·만족도를 확인하는 통계 화면·대시보드를 구현했습니다.</li>
+              <li><strong>폐쇄망 설치·배포 및 GS 인증 대응</strong><br>폐쇄망에 Tomcat·MariaDB를 오프라인으로 설치하고 애플리케이션을 배포했습니다. 이 서비스를 기반으로 한 초기 자사 제품 G-AIDSP 1.0의 GS 인증 과정에서 보안 취약점을 수정했으며, 해당 제품은 GS 인증 1등급을 획득했습니다.</li>
+            </ul>
+            <p class="project-meta">사용 기술</p>
+            <div class="tags"><span class="tag">Java</span><span class="tag">전자정부프레임워크</span><span class="tag">Spring MVC</span><span class="tag">JSP/JSTL</span><span class="tag">JavaScript/jQuery</span><span class="tag">MyBatis</span><span class="tag">MariaDB</span><span class="tag">Cytoscape.js</span><span class="tag">Tomcat</span></div>
           </article>
           <article class="project">
             <div class="project-kind">TEAM PROJECT / SSAFY</div><h3>Ukkikki · 사진 공유 SNS</h3>
