@@ -89,33 +89,16 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .education-more .detail-list { margin-top: 18px; }
 .contact-section { margin-top: 40px; }
 .contact-section > p { margin-top: 20px; color: var(--body); font-size: 13px; }
-.document-next { margin-top: 44px; padding: 23px 0px 0px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.document-next p { color: var(--muted); font-size: 11px; }
-.document-next a { font-size: 13px; font-weight: 600; color: var(--accent); }
 .page-kicker { color: var(--accent); font-size: 10px; font-weight: 600; letter-spacing: 0.09em; margin-bottom: 13px; }
 .page-intro { padding-bottom: 34px; }
 .page-intro h1 { font-size: 38px; margin-bottom: 14px; }
 .page-intro > p:last-child { color: var(--body); font-size: 14px; line-height: 1.9; }
-.company-overview { border-top: 2px solid var(--ink); padding-top: 23px; }
-.company-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 24px; margin-bottom: 17px; }
-.company-heading h2 { font-size: 24px; }
-.company-heading > p { font-size: 11px; color: var(--muted); }
-.company-overview .position { margin-bottom: 14px; color: var(--body); font-size: 12px; }
-.company-summary { color: var(--body); font-size: 14px; line-height: 1.95; }
-.company-summary strong { color: var(--ink); font-weight: 600; }
 .detail-list { margin-top: 24px; display: grid; gap: 21px; }
 .detail-list > div { display: grid; grid-template-columns: 160px minmax(0px, 1fr); gap: 25px; align-items: baseline; }
 .detail-list dt { color: var(--ink); font-size: 12px; font-weight: 650; line-height: 1.85; }
 .detail-list dd { color: var(--body); font-size: 13px; line-height: 1.95; }
-.career-project { margin-top: 45px; padding-top: 30px; border-top: 1px solid var(--line); scroll-margin-top: 110px; }
-.career-project h2 { font-size: 23px; max-width: 740px; }
 .project-metadata { display: flex; flex-wrap: wrap; gap: 5px 18px; color: var(--muted); font-size: 11px; margin-top: 12px; }
 .project-description { margin-top: 19px; color: var(--body); font-size: 14px; line-height: 1.95; }
-.subheading { margin-top: 29px; font-size: 17px; }
-.career-project .detail-list { margin-top: 20px; }
-.tech-detail { margin-top: 30px; padding-top: 19px; border-top: 1px solid var(--line); display: grid; grid-template-columns: 160px minmax(0px, 1fr); gap: 25px; }
-.tech-detail dt { color: var(--ink); font-size: 12px; font-weight: 650; }
-.tech-detail dd { color: var(--muted); font-size: 11px; line-height: 2; }
 .project-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 15px; padding-bottom: 15px; border-bottom: 1px solid rgb(205, 211, 222); }
 .project-filters { display: flex; align-items: center; gap: 4px; }
 .project-filters button { border: 0px; background: transparent; color: var(--muted); border-radius: 4px; padding: 7px 13px; font-size: 11px; }
@@ -155,7 +138,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   .brand span { display: none; }
   .page-shell { grid-template-columns: 142px minmax(0px, 1fr); gap: 35px; }
   .resume-row, .skill-list > div { grid-template-columns: 142px minmax(0px, 1fr); gap: 22px; }
-  .detail-list > div, .tech-detail { grid-template-columns: 132px minmax(0px, 1fr); gap: 20px; }
+  .detail-list > div { grid-template-columns: 132px minmax(0px, 1fr); gap: 20px; }
 }
 @media (max-width: 760px) {
   :root { --header-height: 105px; }
@@ -197,19 +180,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   .page-intro { padding-bottom: 28px; }
   .page-intro h1 { font-size: 31px; }
   .page-intro > p:last-child { font-size: 13px; }
-  .company-heading { display: block; }
-  .company-heading h2 { font-size: 22px; }
-  .company-heading > p { margin-top: 5px; }
-  .company-summary { font-size: 13px; }
   .detail-list { gap: 20px; }
   .detail-list > div { grid-template-columns: 1fr; gap: 5px; }
   .detail-list dt { font-size: 12px; }
   .detail-list dd { font-size: 12px; line-height: 1.95; }
-  .career-project { margin-top: 34px; padding-top: 25px; scroll-margin-top: 128px; }
-  .career-project h2 { font-size: 21px; }
   .project-description { font-size: 13px; }
-  .tech-detail { grid-template-columns: 1fr; gap: 6px; }
-  .subheading { font-size: 16px; }
   .project-toolbar { gap: 8px; }
   .project-filters { gap: 0px; }
   .project-filters button { font-size: 11px; padding: 8px 10px; min-height: 40px; }
@@ -224,9 +199,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   .detail-section h2 { font-size: 20px; }
   .detail-section .skill-tokens { font-size: 11px; }
   .project-pagination a { font-size: 11px; }
-  .document-next { display: block; margin-top: 34px; }
-  .document-next p { margin-bottom: 9px; }
-  .document-next a { font-size: 12px; }
   .site-footer { width: calc(100% - 44px); margin-top: 44px; padding-top: 20px; font-size: 9px; gap: 12px; }
   .site-footer .footer-github { display: none; }
 }
@@ -236,12 +208,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 }
 @media print {
   @page { size: a4; margin: 16mm; }
-  .site-header, .page-sidebar, .site-footer, .skip-link, .copy-email, .snackbar, .document-next, .project-toolbar, .project-pagination { display: none !important; }
+  .site-header, .page-sidebar, .site-footer, .skip-link, .copy-email, .snackbar, .project-toolbar, .project-pagination { display: none !important; }
   body { font-size: 10pt; }
   .page-shell { display: block; width: 100%; margin: 0px; }
   .profile-heading h1 { font-size: 28pt; }
   .headline { font-size: 19pt; }
-  .resume-section, .career-project { margin-top: 20pt; }
+  .resume-section { margin-top: 20pt; }
   .resume-row { grid-template-columns: 115pt 1fr; gap: 18pt; padding: 14pt 0px; }
   .detail-list > div { grid-template-columns: 105pt 1fr; gap: 14pt; break-inside: avoid; }
   .project-index-row, .education-row, .skill-list > div { break-inside: avoid; }
@@ -297,20 +269,13 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 [data-theme="book"] .education-row { padding: 26px 0px; }
 [data-theme="book"] .education-top > .numeric { color: var(--accent); }
 [data-theme="book"] .contact-section { margin-top: 45px; }
-[data-theme="book"] .document-next { padding-top: 23px; margin-top: 47px; }
 [data-theme="book"] .page-intro { padding-bottom: 48px; }
 [data-theme="book"] .page-intro h1 { font-family: Georgia, Batang, serif; font-size: 46px; font-weight: 600; }
 [data-theme="book"] .page-kicker { font-size: 9px; letter-spacing: 0.12em; }
-[data-theme="book"] .company-overview { border-top-width: 1px; padding-top: 28px; }
-[data-theme="book"] .company-heading h2 { font-size: 26px; font-family: Georgia, Batang, serif; }
-[data-theme="book"] .company-heading > p { color: var(--accent); }
-[data-theme="book"] .career-project { margin-top: 50px; padding-top: 35px; }
-[data-theme="book"] .career-project h2 { font-size: 25px; }
 [data-theme="book"] .project-metadata .numeric, [data-theme="book"] .index-meta .numeric { font-family: Georgia, "Times New Roman", serif; font-size: 12px; color: var(--accent); }
 [data-theme="book"] .detail-list { gap: 26px; }
 [data-theme="book"] .detail-list > div { grid-template-columns: 141px minmax(0px, 1fr); gap: 28px; }
 [data-theme="book"] .detail-list dd { line-height: 2.1; }
-[data-theme="book"] .tech-detail { grid-template-columns: 141px minmax(0px, 1fr); gap: 28px; }
 [data-theme="book"] .project-toolbar { border-bottom: 1px solid var(--ink); }
 [data-theme="book"] .project-filters button { border-radius: 0px; }
 [data-theme="book"] .project-index-row { padding: 33px 35px 33px 0px; }
@@ -324,11 +289,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   [data-theme="book"] .page-shell { grid-template-columns: minmax(0px, 1fr) 145px; gap: 36px; }
   [data-theme="book"] .sidebar-sticky { padding-left: 18px; }
   [data-theme="book"] .resume-row, [data-theme="book"] .skill-list > div { grid-template-columns: 130px minmax(0px, 1fr); gap: 25px; }
-  [data-theme="book"] .detail-list > div, [data-theme="book"] .tech-detail { grid-template-columns: 125px minmax(0px, 1fr); gap: 24px; }
+  [data-theme="book"] .detail-list > div { grid-template-columns: 125px minmax(0px, 1fr); gap: 24px; }
 }
 @media (min-width: 761px) and (max-width: 900px) {
   [data-theme="book"] .page-shell { gap: 28px; }
-  [data-theme="book"] .resume-row, [data-theme="book"] .skill-list > div, [data-theme="book"] .detail-list > div, [data-theme="book"] .tech-detail { grid-template-columns: minmax(0px, 1fr); gap: 13px; }
+  [data-theme="book"] .resume-row, [data-theme="book"] .skill-list > div, [data-theme="book"] .detail-list > div { grid-template-columns: minmax(0px, 1fr); gap: 13px; }
   [data-theme="book"] .row-meta { display: flex; flex-wrap: wrap; gap: 3px 15px; align-items: baseline; }
   [data-theme="book"] .row-meta h3 { flex-basis: 100%; }
   [data-theme="book"] .row-meta .numeric { margin: 0px; }
@@ -349,14 +314,13 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   [data-theme="book"] .section-heading { gap: 12px; }
   [data-theme="book"] .section-heading h2 { font-size: 23px; }
   [data-theme="book"] .section-heading > span { font-size: 8px; }
-  [data-theme="book"] .resume-row, [data-theme="book"] .skill-list > div, [data-theme="book"] .detail-list > div, [data-theme="book"] .tech-detail { grid-template-columns: minmax(0px, 1fr); gap: 11px; }
+  [data-theme="book"] .resume-row, [data-theme="book"] .skill-list > div, [data-theme="book"] .detail-list > div { grid-template-columns: minmax(0px, 1fr); gap: 11px; }
   [data-theme="book"] .resume-row { padding: 25px 0px; }
   [data-theme="book"] .row-meta .numeric { display: inline-block; margin: 0px; }
   [data-theme="book"] .row-meta h3 { font-size: 16px; }
   [data-theme="book"] .row-body { font-size: 12px; }
   [data-theme="book"] .page-intro h1 { font-size: 36px; }
   [data-theme="book"] .page-intro { padding-bottom: 36px; }
-  [data-theme="book"] .career-project h2 { font-size: 23px; }
   [data-theme="book"] .project-index-row { padding: 28px 25px 28px 0px; }
   [data-theme="book"] .project-index-row h2 { font-size: 23px; }
   [data-theme="book"] .detail-intro h1 { font-size: 29px; }
