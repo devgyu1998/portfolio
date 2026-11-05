@@ -314,7 +314,7 @@ window.PORTFOLIO_CONTENT = {
         "AWS EC2",
         "Gerrit"
       ],
-      "recordLink": "https://tide-penguin-bbe.notion.site/Ukkikki-4be31e7745c547ed9c88efe1fb5b1221"
+      "recordLink": "https://github.com/devgyu1998/SSAFY10-Ukkikki"
     },
     {
       "id": "grabpic",
@@ -346,7 +346,7 @@ window.PORTFOLIO_CONTENT = {
         "styled-components",
         "Canvas"
       ],
-      "recordLink": "https://tide-penguin-bbe.notion.site/GrabPic-c21a61bfca94451781079ef900635ede"
+      "recordLink": "https://github.com/devgyu1998/SSAFY10-GrabPic"
     },
     {
       "id": "yutnori",
@@ -379,7 +379,7 @@ window.PORTFOLIO_CONTENT = {
         "WebSocket",
         "Pinia"
       ],
-      "recordLink": "https://tide-penguin-bbe.notion.site/3a9f4583b19a4aa3b539fe15d7fa5e63"
+      "recordLink": "https://github.com/devgyu1998/SSAFY10-Yutnori"
     }
   ],
   "skills": [
