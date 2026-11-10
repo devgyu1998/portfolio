@@ -63,6 +63,40 @@ window.PORTFOLIO_CONTENT = {
   ],
   "projects": [
     {
+      "id": "clarinet",
+      "kind": "work",
+      "name": "Clarinet 고도화",
+      "period": "2026.08 — 현재",
+      "description": "전자정부프레임워크와 JSP로 구성된 기존 Clarinet을 Spring Boot 백엔드와 React 프론트엔드로 분리하는 프로젝트입니다. 기존 기능을 옮길 때 반복되는 처리를 줄일 수 있도록 구조를 잡고, AI 코딩 에이전트를 개발에 활용하기 위한 작업 지침과 검증 기준을 마련하고 있습니다. 프론트엔드 개발을 맡아 관리자 웹의 개발 환경을 구성하고, 여러 화면에서 사용할 공통 API 처리 코드를 구현했습니다.",
+      "details": [
+        {
+          "title": "프론트엔드 구조 설계와 기술 선정",
+          "text": "관리자 화면에 필요한 라우팅, 데이터 조회, UI 구성과 폼 검증 기술을 예제로 직접 써 보며 비교하고, 선택 이유를 문서로 정리했습니다. 검색어·필터·페이지 번호를 URL에 남겨 조회 조건을 복원할 수 있도록 TanStack Router를 선택했고, 서버 데이터의 조회와 캐시는 TanStack Query에서 관리하도록 역할을 나눴습니다. React·TypeScript 앱에 기본 라우팅과 조회 설정을 연결하고, Tailwind CSS와 shadcn/ui의 초기 설정을 마쳤습니다."
+        },
+        {
+          "title": "공통 API 처리 구현",
+          "text": "여러 화면에서 API 요청과 응답을 같은 방식으로 처리할 수 있도록 공통 코드를 구현했습니다. Axios로 요청 설정을 한곳에 모으고, 실제 HTTP 상태와 응답 본문의 상태 값이 일치하는지 확인한 뒤 Zod로 필요한 데이터의 형식을 검증하도록 했습니다. 통신 실패나 시간 초과처럼 일시적인 조회 오류는 한 번 다시 요청하고, 조회나 저장이 최종적으로 실패하면 공통 알림으로 안내하도록 연결했습니다."
+        },
+        {
+          "title": "AI 활용 개발 지침 마련",
+          "text": "새 화면을 개발할 때 AI 코딩 에이전트가 기존 공통 코드를 재사용하고, 작업에 필요한 개발 문서를 찾아 참고할 수 있도록 지침을 구성했습니다. 프로젝트 구조와 코드 작성 방식, 화면과 API 구현 규칙, 빌드·테스트와 PR 리뷰 기준을 문서화했습니다. 작업 전에는 기존 구현과 실제 API 명세를 확인하도록 했으며, ESLint와 Prettier로 코드 검사와 서식 규칙을 설정했습니다."
+        }
+      ],
+      "skills": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "TanStack Router",
+        "TanStack Query",
+        "Axios",
+        "Zod",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Sonner"
+      ],
+      "recordLink": null
+    },
+    {
       "id": "soldier",
       "kind": "work",
       "name": "장병체감형 원스톱 서비스 플랫폼 LLM 기반 AI챗봇 서비스 구축",
