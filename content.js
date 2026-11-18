@@ -388,32 +388,178 @@ window.PORTFOLIO_CONTENT = {
       "name": "밀정 윷놀이 · 실시간 웹 게임",
       "period": "2024.01 — 2024.02",
       "description": "기존 윷놀이에 밀정 추리와 미니게임을 더한 실시간 웹 게임을 팀 프로젝트로 개발했습니다. Vue.js 기반의 게임 화면과 진행 로직, WebSocket 연동, 회원 화면을 담당했습니다.",
+      "overview": {
+        "title": "밀정 윷놀이",
+        "description": "윷놀이에 밀정 추리와 미니게임을 더한 실시간 웹 보드게임입니다. 화상·음성으로 소통하며 팀별로 플레이하고, 미션에서 얻은 단서를 바탕으로 우리 팀에 숨어 있는 밀정을 추리합니다.",
+        "role": "프론트엔드 · 게임 화면·진행 로직, WebSocket 연동, 회원·공통 UI 개발",
+        "team": "6명 참여 — 프론트엔드 4명 / 백엔드 2명",
+        "status": "프로젝트 종료",
+        "gallery": [
+          {
+            "src": "./assets/yutnori/01-start.png",
+            "title": "서비스 시작",
+            "description": "로그인하거나 회원가입을 통해 밀정 윷놀이를 시작합니다."
+          },
+          {
+            "src": "./assets/yutnori/02-lobby.png",
+            "title": "게임 로비",
+            "description": "개설된 게임 방을 찾아 입장하거나 새로운 방을 만듭니다."
+          },
+          {
+            "src": "./assets/yutnori/03-waiting-room.png",
+            "title": "대기방·팀 구성",
+            "description": "홍팀과 청팀의 참가자를 확인하고 게임 시작을 준비합니다."
+          },
+          {
+            "src": "./assets/yutnori/04-character-selection.png",
+            "title": "캐릭터 선택",
+            "description": "팀원들과 함께 게임에서 사용할 캐릭터를 선택합니다."
+          },
+          {
+            "src": "./assets/yutnori/05-spy-selection.png",
+            "title": "밀정 선택",
+            "description": "게임 시작 전, 상대 팀의 말 중 밀정으로 지정할 말을 선택합니다."
+          },
+          {
+            "src": "./assets/yutnori/06-game-start.png",
+            "title": "게임 시작",
+            "description": "참가자들의 화상 화면과 윷놀이 보드를 보며 차례대로 게임을 진행합니다."
+          },
+          {
+            "src": "./assets/yutnori/07-yut-result.png",
+            "title": "윷 던지기",
+            "description": "3D 윷을 던지고 나온 결과에 따라 말을 이동합니다."
+          },
+          {
+            "src": "./assets/yutnori/08-spy-deduction.png",
+            "title": "밀정 추리",
+            "description": "추리권을 사용해 우리 팀에서 밀정으로 의심되는 말을 지목합니다."
+          },
+          {
+            "src": "./assets/yutnori/09-mission-tile.png",
+            "title": "미션 칸 도착",
+            "description": "말이 미션 칸에 도착하면 미니게임으로 이어집니다."
+          },
+          {
+            "src": "./assets/yutnori/10-minigame-selection.png",
+            "title": "미니게임 선택",
+            "description": "카드를 골라 진행할 미니게임을 선택합니다."
+          },
+          {
+            "src": "./assets/yutnori/11-camera-minigame.png",
+            "title": "미니게임 진행",
+            "description": "카메라 앞에서 손을 움직여 제한 시간 동안 미니게임을 진행합니다."
+          },
+          {
+            "src": "./assets/yutnori/12-hint-selection.png",
+            "title": "힌트 대상 선택",
+            "description": "밀정을 추리하기 위해 힌트를 얻고 싶은 말을 선택합니다."
+          }
+        ]
+      },
+      "development": [
+        {
+          "title": "윷 던지기와 말 이동",
+          "paragraphs": [
+            "Three.js로 윷이 회전하며 떨어지는 애니메이션을 구현하고, 계산된 결과에 맞춰 윷의 앞뒷면을 표시했습니다. 말은 윷 결과와 선택한 경로에 따라 이동 위치를 계산하고, Vue의 스타일 바인딩과 CSS transition으로 움직임을 표현했습니다.",
+            "윷 결과와 말 선택 정보는 WebSocket으로 주고받고, Pinia에서 말의 위치와 상태, 참가자의 차례를 관리했습니다. 상대 말을 잡거나 윷·모가 나오면 추가 기회를 부여하고, 제한 시간 내 입력이 없으면 자동으로 윷을 던지거나 말을 선택하도록 처리했습니다."
+          ],
+          "demo": {
+            "src": "./assets/yutnori/demo-gameplay.gif",
+            "poster": "./assets/yutnori/07-yut-result.png",
+            "title": "윷 던지기·말 이동·미션 도착",
+            "alt": "윷을 던지고 말을 이동해 미션 칸에 도착하는 시연",
+            "width": 656,
+            "height": 348
+          }
+        },
+        {
+          "title": "미니게임 연동과 밀정 추리 단서 제공",
+          "paragraphs": [
+            "말이 미션 칸에 도착하면 카드를 선택해 미니게임을 실행하도록 연결했습니다. 미니게임에 성공하면 우리 팀의 말 하나를 골라, 해당 캐릭터의 행적이나 소지품·흉터 등 밀정을 찾는 데 필요한 단서를 확인할 수 있도록 했습니다.",
+            "WebSocket으로 받은 단서는 말에 마우스를 올렸을 때 표시했습니다. 게임 시작 시 제공되는 밀정의 단서와 각 캐릭터의 정보를 비교하며 추리할 수 있는 방식입니다. 미션이 끝나면 남은 추가 기회에 따라 윷 던지기를 이어가거나 다음 차례로 넘어가도록 처리했습니다."
+          ],
+          "demo": {
+            "src": "./assets/yutnori/demo-hint.gif",
+            "poster": "./assets/yutnori/12-hint-selection.png",
+            "title": "미션 성공 후 단서 확인",
+            "alt": "미션 성공 후 말을 선택하고 밀정 추리에 필요한 단서를 확인하는 시연",
+            "width": 750,
+            "height": 398
+          }
+        },
+        {
+          "title": "밀정 추리와 승패 판정",
+          "paragraphs": [
+            "추리권을 사용해 우리 팀 말 중 밀정으로 의심되는 말을 지목하고, 서버의 판정에 따라 성공·실패를 처리했습니다. 성공하면 밀정을 제거하고 윷을 던질 수 있도록 했으며, 실패하면 지목한 말이 3턴 동안 움직이지 못하게 하고 상대 팀으로 차례를 넘겼습니다.",
+            "밀정을 제거한 뒤 나머지 말이 모두 골인하면 해당 팀이 승리하고, 밀정을 제거하지 못한 채 골인시키면 상대 팀이 승리하도록 구현했습니다. 각 종료 조건에 따라 승리 팀을 결정하고 게임 결과 화면을 표시했습니다."
+          ],
+          "demo": {
+            "src": "./assets/yutnori/demo-deduction.gif",
+            "poster": "./assets/yutnori/08-spy-deduction.png",
+            "title": "추리권 사용·밀정 지목",
+            "alt": "추리권을 사용해 밀정으로 의심되는 말을 선택하고 판정 결과를 확인하는 시연",
+            "width": 594,
+            "height": 334
+          }
+        }
+      ],
+      "detailsTitle": "전체 담당 기능",
       "details": [
         {
-          "title": "게임 화면·실시간 연동",
-          "text": "윷놀이 보드와 말 정보를 보여주는 화면을 개발하고, 윷 결과에 따른 말 선택·이동과 골인 처리를 구현했습니다. WebSocket으로 게임 동작을 주고받으며, 서버에서 전달받은 결과를 게임 화면에 반영하고 승패에 따라 게임을 종료하도록 구현했습니다."
+          "title": "게임 보드·말 정보",
+          "text": "윷놀이 보드와 미션 칸 표시, 말에 마우스를 올렸을 때 캐릭터 정보와 획득한 단서 표시"
         },
         {
-          "title": "3D 윷 던지기·턴 관리",
-          "text": "Three.js로 윷을 던지는 3D 효과를 구현하고, 각 윷의 무작위 결과에 따라 도·개·걸·윷·모·백도를 결정하도록 개발했습니다. 현재 차례와 다음 차례를 표시하고, 제한 시간 안에 입력이 없으면 자동으로 윷을 던지도록 처리했습니다."
+          "title": "윷 던지기",
+          "text": "Three.js 기반 윷 던지기 애니메이션, 각 윷의 무작위 결과 계산, 도·개·걸·윷·모·백도 표시"
         },
         {
-          "title": "밀정 추리·미션 진행",
-          "text": "추리권 보유 여부에 따라 밀정을 지목하고 결과를 확인할 수 있도록 구현했습니다. 말이 미션 타일에 도착하면 미니게임을 무작위로 선택해 진행하도록 연결했습니다."
+          "title": "말 선택·이동",
+          "text": "이동할 말과 경로 선택, 윷 결과에 따른 말 이동, 상대 말 잡기와 골인 처리"
         },
         {
-          "title": "회원·공통 화면",
-          "text": "회원가입·로그인·로그아웃, 회원정보 수정·탈퇴와 비밀번호 재설정 화면을 설계하고 개발했습니다. 방·프로필 이동을 위한 상단 내비게이션과 친구 관리·채팅을 위한 사이드바 UI도 설계했습니다."
+          "title": "차례·제한 시간",
+          "text": "현재·다음 차례 표시, 추가 던지기 기회 관리, 제한 시간 초과 시 자동 윷 던지기·말 선택"
+        },
+        {
+          "title": "실시간 연동",
+          "text": "WebSocket을 통한 게임 동작 송수신, Pinia를 이용한 말의 위치·상태와 게임 진행 정보 관리"
+        },
+        {
+          "title": "미션·미니게임 연결",
+          "text": "미션 칸 도착 시 카드 선택·미니게임 실행 연결, 성공·실패 처리, 밀정 추리 단서 조회, 미션 종료 후 게임 진행 재개"
+        },
+        {
+          "title": "밀정 추리·게임 종료",
+          "text": "추리권 사용과 밀정 지목, 판정 결과에 따른 말 제거·이동 제한, 밀정과 일반 말의 골인 조건에 따른 승패 판정·결과 화면"
+        },
+        {
+          "title": "회원 화면",
+          "text": "회원가입·로그인·로그아웃, 이메일 인증과 입력값 검증, 닉네임·비밀번호 변경, 임시 비밀번호 발급, 회원 탈퇴"
+        },
+        {
+          "title": "공통 UI",
+          "text": "홈·게임·내 정보로 이동하는 상단 내비게이션, 친구 목록·채팅 등을 이용하는 사이드바 UI"
         }
       ],
       "skills": [
         "JavaScript",
-        "Vue.js",
+        "Vue.js 3",
+        "Pinia",
         "Three.js",
         "WebSocket",
-        "Pinia"
+        "Axios",
+        "Vue Router",
+        "Vite"
       ],
-      "recordLink": "https://github.com/devgyu1998/SSAFY10-Yutnori"
+      "resources": [
+        {
+          "title": "GitHub 저장소",
+          "url": "https://github.com/devgyu1998/SSAFY10-Yutnori",
+          "description": "소스 코드와 README에서 프로젝트 설명 및 서비스 시연을 확인할 수 있습니다."
+        }
+      ]
     }
   ],
   "skills": [

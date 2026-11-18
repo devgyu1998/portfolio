@@ -46,6 +46,27 @@
     return shell('프로젝트', content.projects.map(project => [`project-${project.id}`, shortNames[project.id]]), body);
   }
 
+  function projectGallery(project) {
+    const images = project.overview?.gallery;
+    if (!images?.length) return '';
+    const first = images[0];
+    const counter = `01 / ${String(images.length).padStart(2, '0')}`;
+    return `<div class="project-gallery" data-project-gallery="${escape(project.id)}" role="region" aria-label="서비스 대표 화면 갤러리">
+      <div class="project-gallery-heading"><span>서비스 대표 화면</span><span>화면을 선택하면 확대됩니다</span></div>
+      <figure class="project-gallery-stage"><button class="project-gallery-open" type="button" data-gallery-open aria-haspopup="dialog" aria-label="${escape(first.title)} 화면 확대"><img data-gallery-image src="${escape(first.src)}" alt="${escape(first.title + '. ' + first.description)}" decoding="async"></button><figcaption><div><strong data-gallery-title>${escape(first.title)}</strong><p data-gallery-description>${escape(first.description)}</p></div><span class="project-gallery-count" data-gallery-count aria-live="polite" aria-atomic="true">${counter}</span></figcaption></figure>
+      <div class="project-gallery-navigation"><button type="button" class="project-gallery-arrow" data-gallery-step="-1" aria-label="이전 대표 화면">‹</button><div class="project-gallery-thumbnails" aria-label="대표 화면 선택">${images.map((item, i) => `<button type="button" class="project-gallery-thumbnail" data-gallery-index="${i}" aria-pressed="${i === 0}" aria-label="${i + 1}. ${escape(item.title)} 화면 선택"><img src="${escape(item.src)}" alt="" loading="lazy" decoding="async"><span>${escape(item.title)}</span></button>`).join('')}</div><button type="button" class="project-gallery-arrow" data-gallery-step="1" aria-label="다음 대표 화면">›</button></div>
+      <dialog class="project-gallery-dialog" aria-labelledby="gallery-dialog-title"><div class="project-gallery-dialog-header"><h2 id="gallery-dialog-title">서비스 대표 화면</h2><button type="button" data-gallery-close autofocus>닫기 ×</button></div><img data-gallery-image src="${escape(first.src)}" alt="${escape(first.title + '. ' + first.description)}"><div class="project-gallery-dialog-caption"><div><strong data-gallery-title>${escape(first.title)}</strong><p data-gallery-description>${escape(first.description)}</p></div><div class="project-gallery-dialog-controls"><button type="button" data-gallery-step="-1" aria-label="이전 대표 화면">←</button><span data-gallery-count aria-live="polite" aria-atomic="true">${counter}</span><button type="button" data-gallery-step="1" aria-label="다음 대표 화면">→</button></div></div></dialog>
+    </div>`;
+  }
+
+  function projectDevelopment(project) {
+    if (!project.development?.length) return '';
+    return `<section class="detail-section" id="development"><h2>주요 개발 내용</h2>${project.development.map((entry, index) => {
+      const demo = entry.demo;
+      return `<article class="development-entry"><h3><span class="development-number" aria-hidden="true">${String(index + 1).padStart(2, '0')}</span>${escape(entry.title)}</h3>${entry.paragraphs.map(paragraph => `<p>${escape(paragraph)}</p>`).join('')}${demo ? `<details class="project-demo" data-project-demo="${index}"><summary><span class="project-demo-icon" aria-hidden="true"></span><span>${escape(demo.title)} 시연 보기</span><span class="project-demo-fold" aria-hidden="true">펼치기</span></summary><figure class="project-demo-player"><button type="button" class="project-demo-stage" data-demo-play aria-label="${escape(demo.title)} 시연 재생" aria-pressed="false"><img src="${escape(demo.poster)}" alt="${escape(demo.title)} 미리보기" width="${demo.width}" height="${demo.height}" loading="lazy" decoding="async"><span class="project-demo-overlay" aria-hidden="true">▶</span></button><figcaption><span>${escape(demo.title)}</span><button type="button" data-demo-play aria-label="${escape(demo.title)} 시연 재생" aria-pressed="false">▶ 재생</button></figcaption></figure></details>` : ''}</article>`;
+    }).join('')}</section>`;
+  }
+
   function projectDetail() {
     const project = content.projects.find(item => item.id === new URLSearchParams(location.search).get('id'));
     if (!project) return shell('프로젝트', [['main', '프로젝트']], '<div class="page-intro"><h1>프로젝트를 찾을 수 없습니다.</h1><p><a class="text-link" href="./projects.html">프로젝트 목록으로 돌아가기 →</a></p></div>');
@@ -54,11 +75,94 @@
     const previous = content.projects[index - 1];
     const next = content.projects[index + 1];
     const detailsTitle = project.detailsTitle || '담당 업무';
-    const body = `<nav class="breadcrumb" aria-label="현재 위치"><a href="./projects.html">프로젝트</a><span aria-hidden="true">/</span><span>${escape(shortNames[project.id])}</span></nav><section class="detail-intro" id="overview"><p class="page-kicker">${escape(projectKind(project))}</p><h1>${escape(project.name)}</h1><div class="project-metadata"><span class="numeric">${escape(project.period)}</span><span>${escape(organization(project))}</span></div><p class="project-description">${escape(project.description)}</p></section><section class="detail-section" id="responsibilities"><h2>${escape(detailsTitle)}</h2>${details(project.details)}</section><section class="detail-section" id="technologies"><h2>사용 기술</h2><p class="skill-tokens">${tokens(project.skills)}</p></section>${project.recordLink ? `<section class="detail-section" id="record"><h2>소스 코드</h2><a class="record-link" href="${escape(project.recordLink)}" target="_blank" rel="noopener noreferrer">GitHub 저장소 보기 ↗</a></section>` : ''}<nav class="project-pagination" aria-label="다른 프로젝트">${previous ? `<a class="previous-project" href="${projectUrl(previous)}"><span>← 이전 프로젝트</span>${escape(shortNames[previous.id])}</a>` : ''}${next ? `<a class="next-project" href="${projectUrl(next)}"><span>다음 프로젝트 →</span>${escape(shortNames[next.id])}</a>` : ''}</nav>`;
-    return shell('프로젝트 상세', [['overview', '개요'], ['responsibilities', detailsTitle], ['technologies', '사용 기술'], ...(project.recordLink ? [['record', '소스 코드']] : [])], body);
+    const overview = project.overview || {};
+    const resourceSections = project.resources?.length ? [['resources', '사용 기술·관련 자료']] : [['technologies', '사용 기술'], ...(project.recordLink ? [['record', '소스 코드']] : [])];
+    const resourceContent = project.resources?.length
+      ? `<section class="detail-section" id="resources"><h2>사용 기술·관련 자료</h2><p class="skill-tokens">${tokens(project.skills)}</p>${project.resources.map(resource => `<div class="project-resource"><a class="record-link" href="${escape(resource.url)}" target="_blank" rel="noopener noreferrer">${escape(resource.title)} ↗</a>${resource.description ? `<p>${escape(resource.description)}</p>` : ''}</div>`).join('')}</section>`
+      : `<section class="detail-section" id="technologies"><h2>사용 기술</h2><p class="skill-tokens">${tokens(project.skills)}</p></section>${project.recordLink ? `<section class="detail-section" id="record"><h2>소스 코드</h2><a class="record-link" href="${escape(project.recordLink)}" target="_blank" rel="noopener noreferrer">GitHub 저장소 보기 ↗</a></section>` : ''}`;
+    const body = `<nav class="breadcrumb" aria-label="현재 위치"><a href="./projects.html">프로젝트</a><span aria-hidden="true">/</span><span>${escape(shortNames[project.id])}</span></nav><section class="detail-intro" id="overview"><p class="page-kicker">${escape(projectKind(project))}</p><h1>${escape(overview.title || project.name)}</h1><div class="project-metadata"><span class="numeric">${escape(project.period)}</span><span>${escape(organization(project))}</span>${overview.team ? `<span>${escape(overview.team)}</span>` : ''}${overview.status ? `<span>${escape(overview.status)}</span>` : ''}</div><p class="project-description">${escape(overview.description || project.description)}</p>${overview.role ? `<p class="project-role"><strong>담당 역할</strong><span>${escape(overview.role)}</span></p>` : ''}${projectGallery(project)}</section>${projectDevelopment(project)}<section class="detail-section" id="responsibilities"><h2>${escape(detailsTitle)}</h2>${details(project.details)}</section>${resourceContent}<nav class="project-pagination" aria-label="다른 프로젝트">${previous ? `<a class="previous-project" href="${projectUrl(previous)}"><span>← 이전 프로젝트</span>${escape(shortNames[previous.id])}</a>` : ''}${next ? `<a class="next-project" href="${projectUrl(next)}"><span>다음 프로젝트 →</span>${escape(shortNames[next.id])}</a>` : ''}</nav>`;
+    return shell('프로젝트 상세', [['overview', project.overview ? '프로젝트 소개' : '개요'], ...(project.development?.length ? [['development', '주요 개발 내용']] : []), ['responsibilities', detailsTitle], ...resourceSections], body);
   }
 
   app.innerHTML = ({ resume, projects, project: projectDetail }[page] || resume)();
+  document.querySelectorAll('[data-project-demo]').forEach(details => {
+    const project = content.projects.find(item => item.id === new URLSearchParams(location.search).get('id'));
+    const demo = project.development[Number(details.dataset.projectDemo)].demo;
+    const player = details.querySelector('.project-demo-player');
+    const image = player.querySelector('img');
+    const buttons = [...player.querySelectorAll('[data-demo-play]')];
+    let playing = false;
+    function setPlaying(next) {
+      playing = next;
+      image.src = playing ? demo.src : demo.poster;
+      image.alt = playing ? demo.alt : `${demo.title} 미리보기`;
+      player.classList.toggle('is-playing', playing);
+      buttons.forEach(button => {
+        button.setAttribute('aria-pressed', String(playing));
+        button.setAttribute('aria-label', `${demo.title} 시연 ${playing ? '정지' : '재생'}`);
+      });
+      player.querySelector('figcaption button').textContent = playing ? '■ 정지' : '▶ 재생';
+    }
+    buttons.forEach(button => button.addEventListener('click', () => setPlaying(!playing)));
+    details.addEventListener('toggle', () => {
+      details.querySelector('.project-demo-fold').textContent = details.open ? '접기' : '펼치기';
+      if (!details.open && playing) setPlaying(false);
+      scheduleToc();
+    });
+  });
+  const gallery = document.querySelector('[data-project-gallery]');
+  if (gallery) {
+    const images = content.projects.find(project => project.id === gallery.dataset.projectGallery).overview.gallery;
+    const thumbnails = [...gallery.querySelectorAll('[data-gallery-index]')];
+    const strip = gallery.querySelector('.project-gallery-thumbnails');
+    const dialog = gallery.querySelector('dialog');
+    const openButton = gallery.querySelector('[data-gallery-open]');
+    let selected = 0;
+    function centerThumbnail() {
+      const active = thumbnails[selected];
+      const styles = getComputedStyle(strip);
+      const edge = Math.max(0, (strip.clientWidth - active.getBoundingClientRect().width) / 2 - parseFloat(styles.columnGap) - parseFloat(styles.paddingLeft));
+      strip.style.setProperty('--gallery-edge', `${edge}px`);
+      const bounds = active.getBoundingClientRect();
+      const stripBounds = strip.getBoundingClientRect();
+      strip.scrollTo({ left: strip.scrollLeft + bounds.left - stripBounds.left - (strip.clientWidth - bounds.width) / 2, behavior: 'instant' });
+    }
+    function selectImage(index, focusThumbnail = false) {
+      selected = (index + images.length) % images.length;
+      const item = images[selected];
+      gallery.querySelectorAll('[data-gallery-image]').forEach(image => {
+        image.src = item.src;
+        image.alt = `${item.title}. ${item.description}`;
+      });
+      gallery.querySelectorAll('[data-gallery-title]').forEach(title => { title.textContent = item.title; });
+      gallery.querySelectorAll('[data-gallery-description]').forEach(description => { description.textContent = item.description; });
+      gallery.querySelectorAll('[data-gallery-count]').forEach(count => { count.textContent = `${String(selected + 1).padStart(2, '0')} / ${String(images.length).padStart(2, '0')}`; });
+      openButton.setAttribute('aria-label', `${item.title} 화면 확대`);
+      thumbnails.forEach((button, i) => button.setAttribute('aria-pressed', String(i === selected)));
+      const active = thumbnails[selected];
+      centerThumbnail();
+      if (focusThumbnail && !dialog.open) active.focus({ preventScroll: true });
+    }
+    gallery.addEventListener('click', event => {
+      const thumbnail = event.target.closest('[data-gallery-index]');
+      if (thumbnail) selectImage(Number(thumbnail.dataset.galleryIndex));
+      const step = event.target.closest('[data-gallery-step]');
+      if (step) selectImage(selected + Number(step.dataset.galleryStep));
+      if (event.target.closest('[data-gallery-open]')) dialog.showModal();
+      if (event.target.closest('[data-gallery-close]')) dialog.close();
+    });
+    gallery.addEventListener('keydown', event => {
+      if (event.altKey || event.ctrlKey || event.metaKey) return;
+      const thumbnail = event.target.closest('[data-gallery-index]');
+      const current = thumbnail ? Number(thumbnail.dataset.galleryIndex) : selected;
+      const targets = { ArrowLeft: current - 1, ArrowRight: current + 1, Home: 0, End: images.length - 1 };
+      if (!(event.key in targets)) return;
+      event.preventDefault();
+      selectImage(targets[event.key], Boolean(thumbnail));
+    });
+    new ResizeObserver(centerThumbnail).observe(strip);
+    centerThumbnail();
+  }
   let toastTimer;
   const snackbar = document.querySelector('.snackbar');
   document.querySelectorAll('[data-copy-email]').forEach(button => {
