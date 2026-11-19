@@ -356,31 +356,116 @@ window.PORTFOLIO_CONTENT = {
       "name": "GrabPic · 실시간 AI 생태도감",
       "period": "2024.02 — 2024.04",
       "description": "카메라에 비친 동식물을 AI로 인식하고, 촬영한 개체를 개인 도감에 기록하는 서비스를 팀 프로젝트로 개발했습니다. React·TypeScript로 AI 카메라와 도감 등록, 회원 화면을 구현했습니다.",
+      "overview": {
+        "title": "GrabPic · 실시간 AI 생태도감",
+        "description": "카메라에 비친 동식물을 AI로 실시간 인식하고, 촬영한 동식물을 나만의 도감에 기록하는 서비스입니다. 수집한 동식물을 지도와 차트로 확인하고, 다른 사용자를 구독해 도감을 둘러볼 수 있습니다.",
+        "role": "프론트엔드",
+        "team": "6명 참여 — 프론트엔드 3명 / 백엔드 2명 / AI 1명",
+        "gallery": [
+          {
+            "src": "./assets/grabpic/01-camera.png",
+            "title": "AI 카메라",
+            "description": "카메라에 잡힌 새의 이름과 인식 영역을 표시합니다."
+          },
+          {
+            "src": "./assets/grabpic/02-chart.png",
+            "title": "도감 차트",
+            "description": "도감에 기록한 동식물을 분류별로 살펴봅니다."
+          },
+          {
+            "src": "./assets/grabpic/03-records.png",
+            "title": "관찰 기록",
+            "description": "지도 아래 목록에서 촬영한 동식물과 촬영 시각·위치를 확인합니다."
+          },
+          {
+            "src": "./assets/grabpic/04-map.png",
+            "title": "관찰 지도",
+            "description": "지도에 표시된 사진으로 동식물을 촬영한 위치를 확인합니다."
+          },
+          {
+            "src": "./assets/grabpic/05-guestbook.png",
+            "title": "방명록",
+            "description": "다른 사용자를 구독하거나 방명록에 글을 남길 수 있습니다."
+          }
+        ]
+      },
+      "development": [
+        {
+          "title": "실시간 AI 카메라와 인식 결과 표시",
+          "paragraphs": [
+            "기기 카메라 영상을 불러오고, TensorFlow.js로 YOLO 모델을 브라우저에서 실행했습니다. 카메라 프레임을 모델의 입력 크기에 맞게 조정하고 픽셀값을 정규화해 동식물 인식에 사용했습니다.",
+            "인식한 동식물의 이름과 영역을 Canvas에 표시하고, 사용자가 해당 영역을 눌러 촬영할 대상을 선택할 수 있도록 구현했습니다."
+          ],
+          "demo": {
+            "src": "./assets/grabpic/itemLabel.gif",
+            "poster": "./assets/grabpic/itemLabel-poster.jpg",
+            "title": "AI 카메라 실시간 인식",
+            "alt": "AI 카메라가 새를 인식해 이름과 영역을 표시하는 시연",
+            "width": 720,
+            "height": 966
+          }
+        },
+        {
+          "title": "촬영 프레임 저장과 도감 등록",
+          "paragraphs": [
+            "영상 보간에 사용할 촬영 직전 장면을 확보하기 위해, 카메라 프레임을 0.1초 간격으로 최대 20장까지 저장했습니다. 새로운 프레임이 들어오면 가장 오래된 프레임을 제거하는 방식으로 최근 20장을 유지했습니다.",
+            "촬영 후에는 사진과 인식한 동식물의 정보를 확인하고 도감에 등록할 수 있도록 화면과 API를 연결했습니다. 등록할 때 촬영 사진과 저장한 프레임을 FormData로 서버에 전달했으며, 전달한 프레임은 팀원이 구현한 영상 생성·프레임 보간에 사용됐습니다."
+          ],
+          "demo": {
+            "src": "./assets/grabpic/itemSep.gif",
+            "poster": "./assets/grabpic/itemSep-poster.jpg",
+            "title": "촬영 사진 확인과 도감 등록",
+            "alt": "촬영한 새의 사진을 확인하고 도감 등록을 위해 전송하는 시연",
+            "width": 720,
+            "height": 1560
+          }
+        }
+      ],
+      "detailsTitle": "전체 담당 기능",
       "details": [
         {
-          "title": "실시간 AI 카메라 구현",
-          "text": "사용자 기기의 카메라 영상을 불러오고, TensorFlow로 YOLO 모델을 실행해 동식물을 실시간으로 인식하는 기능을 구현했습니다. 인식된 대상의 이름과 영역을 Canvas에 표시하고, 터치 이벤트를 구현했습니다."
+          "title": "카메라",
+          "text": "기기 카메라 연결, 실시간 영상 표시, 사진 촬영·미리보기·재촬영"
         },
         {
-          "title": "촬영 데이터 처리·도감 등록",
-          "text": "촬영 직전의 영상 프레임을 큐에 저장해 AI 처리에 사용할 수 있도록 구현했습니다. 촬영한 개체의 정보를 확인하고 도감에 등록하거나 취소할 수 있도록 화면을 개발했습니다."
+          "title": "실시간 인식",
+          "text": "TensorFlow.js로 YOLO 모델을 실행해 동식물 인식. Canvas에 이름과 영역을 표시하고 촬영 대상 선택"
         },
         {
-          "title": "회원 화면·인증 연동",
-          "text": "회원가입·로그인·로그아웃, 회원정보 수정·탈퇴와 비밀번호 재설정 화면을 개발하고 백엔드 API를 연동했습니다. 리프레시 토큰을 이용한 액세스 토큰 갱신과 자동 로그인 기능도 구현했습니다."
+          "title": "촬영 프레임 저장",
+          "text": "영상 보간에 사용할 프레임을 0.1초 간격으로 저장하고 최근 20장 유지"
+        },
+        {
+          "title": "도감 등록",
+          "text": "촬영한 동식물의 정보 조회, 등록·취소 화면 구현, 등록 시 사진과 프레임 전송"
+        },
+        {
+          "title": "회원",
+          "text": "회원가입·로그인·로그아웃·회원정보 수정·비밀번호 재설정·회원 탈퇴 화면 구현 및 API 연동"
+        },
+        {
+          "title": "자동 로그인",
+          "text": "토큰 재발급 API 연동, 사용자 정보 조회 및 로그인 상태 복원"
         }
       ],
       "skills": [
         "React",
         "TypeScript",
-        "TensorFlow",
+        "TensorFlow.js",
         "YOLO",
+        "Canvas API",
         "Recoil",
+        "Axios",
         "Tailwind CSS",
-        "styled-components",
-        "Canvas"
+        "styled-components"
       ],
-      "recordLink": "https://github.com/devgyu1998/SSAFY10-GrabPic"
+      "resources": [
+        {
+          "title": "GrabPic GitHub 저장소",
+          "url": "https://github.com/devgyu1998/SSAFY10-GrabPic",
+          "description": "README에서 AI 카메라의 실시간 인식과 도감 등록 과정을 GIF로 볼 수 있습니다."
+        }
+      ]
     },
     {
       "id": "yutnori",
