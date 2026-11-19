@@ -249,14 +249,34 @@ window.PORTFOLIO_CONTENT = {
       "name": "OKESTRO AGI 기업 홈페이지",
       "period": "2025.02",
       "description": "회사와 자사 솔루션, 주요 소식을 소개하는 기업 홈페이지를 개발했습니다. PC·모바일에 맞춘 반응형 화면을 구현하고, 가비아 호스팅에 배포했습니다.",
+      "overview": {
+        "status": "이전 버전",
+        "gallery": [
+          {
+            "src": "./assets/company/home-desktop.png",
+            "title": "메인 화면 · PC",
+            "description": "상단 메뉴에서 회사 소개, 솔루션, 뉴스룸으로 이동합니다."
+          },
+          {
+            "src": "./assets/company/home-mobile.png",
+            "title": "메인 화면 · 모바일",
+            "description": "작은 화면에서는 오른쪽 위 버튼으로 메뉴를 엽니다."
+          }
+        ]
+      },
+      "development": [
+        {
+          "title": "반응형 화면·메뉴 구현",
+          "paragraphs": [
+            "PC·모바일 환경에 맞춰 레이아웃을 구성하고, 공통 헤더·푸터와 모바일 메뉴를 개발했습니다. 스크롤에 따른 헤더 표시와 로고 전환도 구현했습니다."
+          ]
+        }
+      ],
+      "detailsTitle": "전체 담당 기능",
       "details": [
         {
           "title": "회사 소개·솔루션·뉴스룸 개발",
           "text": "HTML·CSS·JavaScript로 회사 소개와 솔루션 소개, 뉴스룸 페이지를 개발했습니다. 회사·제품 정보와 기사 이미지, 외부 기사 링크를 화면에 반영했습니다."
-        },
-        {
-          "title": "반응형 화면·메뉴 구현",
-          "text": "PC·모바일 환경에 맞춰 레이아웃을 구성하고, 공통 헤더·푸터와 모바일 메뉴를 개발했습니다. 스크롤에 따른 헤더 표시와 로고 전환도 구현했습니다."
         },
         {
           "title": "호스팅 배포",
