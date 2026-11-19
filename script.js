@@ -51,9 +51,10 @@
     if (!images?.length) return '';
     const first = images[0];
     const counter = `01 / ${String(images.length).padStart(2, '0')}`;
+    const captions = images.map((item, i) => `<div data-gallery-caption aria-hidden="${i !== 0}"><strong>${escape(item.title)}</strong><p>${escape(item.description)}</p></div>`).join('');
     return `<div class="project-gallery" data-project-gallery="${escape(project.id)}" role="region" aria-label="서비스 대표 화면 갤러리">
       <div class="project-gallery-heading"><span>서비스 대표 화면</span><span>화면을 선택하면 확대됩니다</span></div>
-      <figure class="project-gallery-stage"><button class="project-gallery-open" type="button" data-gallery-open aria-haspopup="dialog" aria-label="${escape(first.title)} 화면 확대"><img data-gallery-image src="${escape(first.src)}" alt="${escape(first.title + '. ' + first.description)}" decoding="async"></button><figcaption><div><strong data-gallery-title>${escape(first.title)}</strong><p data-gallery-description>${escape(first.description)}</p></div><span class="project-gallery-count" data-gallery-count aria-live="polite" aria-atomic="true">${counter}</span></figcaption></figure>
+      <figure class="project-gallery-stage"><button class="project-gallery-open" type="button" data-gallery-open aria-haspopup="dialog" aria-label="${escape(first.title)} 화면 확대"><img data-gallery-image src="${escape(first.src)}" alt="${escape(first.title + '. ' + first.description)}" decoding="async"></button><figcaption><div class="project-gallery-captions">${captions}</div><span class="project-gallery-count" data-gallery-count aria-live="polite" aria-atomic="true">${counter}</span></figcaption></figure>
       <div class="project-gallery-navigation"><button type="button" class="project-gallery-arrow" data-gallery-step="-1" aria-label="이전 대표 화면">‹</button><div class="project-gallery-thumbnails" aria-label="대표 화면 선택">${images.map((item, i) => `<button type="button" class="project-gallery-thumbnail" data-gallery-index="${i}" aria-pressed="${i === 0}" aria-label="${i + 1}. ${escape(item.title)} 화면 선택"><img src="${escape(item.src)}" alt="" loading="lazy" decoding="async"><span>${escape(item.title)}</span></button>`).join('')}</div><button type="button" class="project-gallery-arrow" data-gallery-step="1" aria-label="다음 대표 화면">›</button></div>
       <dialog class="project-gallery-dialog" aria-labelledby="gallery-dialog-title"><div class="project-gallery-dialog-header"><h2 id="gallery-dialog-title">서비스 대표 화면</h2><button type="button" data-gallery-close autofocus>닫기 ×</button></div><img data-gallery-image src="${escape(first.src)}" alt="${escape(first.title + '. ' + first.description)}"><div class="project-gallery-dialog-caption"><div><strong data-gallery-title>${escape(first.title)}</strong><p data-gallery-description>${escape(first.description)}</p></div><div class="project-gallery-dialog-controls"><button type="button" data-gallery-step="-1" aria-label="이전 대표 화면">←</button><span data-gallery-count aria-live="polite" aria-atomic="true">${counter}</span><button type="button" data-gallery-step="1" aria-label="다음 대표 화면">→</button></div></div></dialog>
     </div>`;
@@ -130,6 +131,7 @@
     function selectImage(index, focusThumbnail = false) {
       selected = (index + images.length) % images.length;
       const item = images[selected];
+      gallery.querySelectorAll('[data-gallery-caption]').forEach((caption, i) => caption.setAttribute('aria-hidden', String(i !== selected)));
       gallery.querySelectorAll('[data-gallery-image]').forEach(image => {
         image.src = item.src;
         image.alt = `${item.title}. ${item.description}`;
