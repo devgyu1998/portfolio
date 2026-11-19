@@ -314,41 +314,145 @@ window.PORTFOLIO_CONTENT = {
       "name": "Ukkikki · 사진 공유 SNS",
       "period": "2024.04 — 2024.05",
       "description": "촬영한 사진을 자동으로 업로드하고 AI로 정리·분류해 공유하는 SNS를 팀 프로젝트로 개발했습니다. 메모·댓글 등 소통 기능의 화면·API와 회원 인증, 메시지 큐 서버를 개발하고 배포 환경을 구성했습니다.",
+      "overview": {
+        "title": "Ukkikki · 사진 공유 SNS",
+        "description": "함께 찍은 사진을 한곳에 모아 보고 그날의 이야기를 나누는 그룹 SNS입니다. 앱에서 촬영한 사진은 그룹 앨범에 자동으로 올라가고, AI가 인물별로 정리해 줍니다. 그룹 안에서는 피드에 글과 댓글을 남기거나 실시간 채팅으로 대화를 나눌 수 있습니다.",
+        "role": "풀스택 개발 및 인프라",
+        "team": "6명 참여 — 프론트엔드 2명 / 백엔드 3명 / 풀스택 1명",
+        "gallery": [
+          {
+            "src": "./assets/ukkikki/01-home.png",
+            "title": "홈",
+            "description": "현재 사진이 업로드되는 그룹을 확인하고 카메라를 열 수 있습니다."
+          },
+          {
+            "src": "./assets/ukkikki/02-groups.png",
+            "title": "참여 그룹",
+            "description": "참여 중인 그룹을 확인하거나 새 그룹을 만듭니다."
+          },
+          {
+            "src": "./assets/ukkikki/03-camera.png",
+            "title": "카메라",
+            "description": "사진을 촬영하면 지정한 그룹 앨범에 자동으로 올라갑니다."
+          },
+          {
+            "src": "./assets/ukkikki/04-group-home.png",
+            "title": "그룹 홈",
+            "description": "그룹의 멤버를 확인하고 앨범, 피드, 채팅으로 이동합니다."
+          },
+          {
+            "src": "./assets/ukkikki/05-photos.png",
+            "title": "사진 모아보기",
+            "description": "사진을 한눈에 보고 원하는 사진을 선택합니다."
+          },
+          {
+            "src": "./assets/ukkikki/06-album.png",
+            "title": "그룹 앨범",
+            "description": "그룹에서 공유한 폴더와 사진을 함께 살펴봅니다."
+          },
+          {
+            "src": "./assets/ukkikki/07-memo.png",
+            "title": "사진 메모",
+            "description": "사진에 남긴 메모를 읽거나 새 메모를 작성합니다."
+          },
+          {
+            "src": "./assets/ukkikki/08-chat.png",
+            "title": "그룹 채팅",
+            "description": "그룹 멤버들과 실시간으로 메시지를 주고받습니다."
+          },
+          {
+            "src": "./assets/ukkikki/09-feed.png",
+            "title": "그룹 피드",
+            "description": "그룹 멤버들이 사진과 함께 올린 게시글을 둘러봅니다."
+          },
+          {
+            "src": "./assets/ukkikki/10-comments.png",
+            "title": "게시글과 댓글",
+            "description": "게시글의 사진과 본문을 보고 댓글이나 답글을 남깁니다."
+          }
+        ]
+      },
+      "development": [
+        {
+          "title": "사진 업로드 후 인물 분류 요청을 처리하는 메시지 큐",
+          "paragraphs": [
+            "촬영한 사진이 자동으로 올라가거나 사용자가 직접 사진을 올리면, 원본을 S3에 저장한 뒤 AI 서버에 인물 분류를 요청합니다. 여러 사진의 분류 요청이 한꺼번에 몰리지 않도록 메시지 큐를 개발했습니다.",
+            "그룹 ID를 기준으로 요청을 네 개의 큐에 나누고, 각 큐에서는 앞선 요청이 끝나면 다음 사진을 보내도록 했습니다."
+          ]
+        },
+        {
+          "title": "GitLab과 Jenkins를 연동한 자동 배포",
+          "paragraphs": [
+            "프론트엔드, 백엔드, 메시지 큐 서버의 빌드와 배포를 자동화했습니다. Docker에서 Jenkins를 실행하고 GitLab 웹훅을 연동해, 코드가 변경되면 해당 서비스를 빌드하고 배포 서버의 컨테이너를 새 버전으로 교체하도록 구성했습니다."
+          ]
+        },
+        {
+          "title": "그룹 피드의 댓글·대댓글과 멤버 태그",
+          "paragraphs": [
+            "그룹 피드에서 게시글에 댓글을 남기고 특정 댓글에 답글을 달 수 있도록 화면과 API를 구현했습니다. 댓글이나 대댓글을 작성할 때 @ 뒤에 이름을 입력하면 일치하는 그룹 멤버가 표시되고, 그중 원하는 멤버를 선택해 태그할 수 있습니다."
+          ],
+          "demo": {
+            "src": "./assets/ukkikki/comment-mention.gif",
+            "poster": "./assets/ukkikki/comment-mention-poster.png",
+            "title": "댓글에서 그룹 멤버 태그",
+            "alt": "그룹 피드에서 댓글을 작성하며 멤버를 태그하는 시연",
+            "width": 335,
+            "height": 749
+          }
+        }
+      ],
+      "detailsTitle": "전체 담당 기능",
       "details": [
         {
-          "title": "사진 메모·좋아요·댓글 개발",
-          "text": "React·TypeScript 화면과 Spring Boot API를 개발해 사진에 메모와 좋아요를 남기고, 댓글·대댓글로 소통할 수 있도록 구현했습니다. 댓글에서 다른 사용자를 언급하는 화면 기능도 개발했습니다."
+          "title": "회원 인증",
+          "text": "카카오 OAuth2 로그인, 게스트 로그인, 로그아웃, 토큰 재발급 API 구현"
         },
         {
-          "title": "회원 인증·계정 관리",
-          "text": "카카오 OAuth2 로그인과 게스트 로그인, 로그아웃 기능을 구현했습니다. 토큰 발급·관리를 포함한 회원 관리 API를 개발했습니다."
+          "title": "피드 댓글·대댓글",
+          "text": "댓글·대댓글 작성·수정·삭제 화면과 API 구현, @로 그룹 멤버를 태그하는 기능 구현"
         },
         {
-          "title": "커스텀 메시지 큐 개발",
-          "text": "AI 작업을 비동기로 처리하고, AI 서버에 요청이 몰리지 않도록 커스텀 메시지 큐 서버를 개발했습니다."
+          "title": "사진 메모·좋아요",
+          "text": "사진 메모 작성·수정·삭제와 좋아요 등록·취소 화면 및 API 구현"
         },
         {
-          "title": "배포·코드 리뷰 환경 구성",
-          "text": "프론트엔드·백엔드, MySQL·MongoDB·Redis와 메시지 큐 서버를 Docker로 배포하고, Jenkins 배포 파이프라인을 구성했습니다. Gerrit을 직접 설정·관리해 팀에서 코드 리뷰를 진행할 수 있는 환경을 마련했습니다."
+          "title": "메시지 큐",
+          "text": "자동·직접 업로드한 사진의 인물 분류 요청을 순서대로 전달하는 큐 서버 개발"
+        },
+        {
+          "title": "서비스 배포",
+          "text": "프론트엔드·백엔드·메시지 큐 서버를 Docker로 배포하고, GitLab과 Jenkins를 연동해 빌드·배포 자동화"
+        },
+        {
+          "title": "데이터베이스·코드 리뷰 환경",
+          "text": "MySQL·MongoDB·Redis를 Docker로 배포하고, 팀 코드 리뷰에 사용할 Gerrit 설정·관리"
         }
       ],
       "skills": [
+        "React",
+        "TypeScript",
         "Java",
         "Spring Boot",
         "Spring Security",
-        "React",
-        "TypeScript",
+        "OAuth2",
+        "Spring WebClient",
         "MySQL",
         "MongoDB",
         "Redis",
-        "OAuth2",
+        "AWS EC2",
         "Docker",
         "Nginx",
         "Jenkins",
-        "AWS EC2",
+        "GitLab",
         "Gerrit"
       ],
-      "recordLink": "https://github.com/devgyu1998/SSAFY10-Ukkikki"
+      "resources": [
+        {
+          "title": "Ukkikki GitHub 저장소",
+          "url": "https://github.com/devgyu1998/SSAFY10-Ukkikki",
+          "description": "README에서 그룹 피드, 사진 메모, 좋아요 기능을 GIF로 볼 수 있습니다."
+        }
+      ]
     },
     {
       "id": "grabpic",
