@@ -380,7 +380,14 @@ window.PORTFOLIO_CONTENT = {
       "overview": {
         "title": "수원시 복지민원 검색 서비스",
         "description": "수원시의 복지 문서와 조례에서 민원 업무에 필요한 정보를 찾아주는 LLM·RAG 기반 서비스입니다. 질문에 대한 답변과 참고 문서를 함께 보여주는 챗봇과, 검색 자료와 사용자 계정을 관리하고 서비스 이용 현황을 살펴볼 수 있는 관리자 페이지로 구성됩니다.",
-        "role": "웹 풀스택 개발 · 폐쇄망 설치 및 배포"
+        "role": "웹 풀스택 개발 · 폐쇄망 설치 및 배포",
+        "gallery": [
+          {
+            "src": "./assets/suwon/welfare-search.png",
+            "title": "복지민원 검색 결과",
+            "description": "생계급여 기준에 대한 답변과 그 근거가 된 문서를 함께 보여줍니다."
+          }
+        ]
       },
       "development": [
         {
