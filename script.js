@@ -30,7 +30,7 @@
   }
 
   function resume() {
-    const selected = ['soldier', 'ts', 'ukkikki'].map(id => content.projects.find(project => project.id === id));
+    const selected = ['soldier', 'ts', 'suwon'].map(id => content.projects.find(project => project.id === id));
     const education = content.education.map(entry => `<article class="education-row"><div class="education-top"><h3>${escape(entry.title)}</h3><p class="numeric">${escape(entry.period)}</p></div>${entry.summary ? `<p>${escape(entry.summary)}</p>` : ''}${entry.details.length ? `<details class="education-more"><summary>교육·협업 내용 보기</summary>${details(entry.details)}</details>` : ''}</article>`).join('');
     const body = `<section class="resume-intro" id="about"><figure class="profile-photo"><img src="./profile.jpg" alt="양성규 프로필 사진" width="354" height="472"></figure><div class="profile-heading"><h1>양성규</h1><span class="role-label">Full Stack Developer</span></div><p class="headline">${content.hero.titleHtml}</p><p class="intro-description">${escape(content.hero.intro)}</p>${contact()}</section>
       <section class="resume-section" id="experience">${sectionHeading('경력', 'Experience')}<article class="resume-row"><div class="row-meta"><h3>${escape(content.career.company)}</h3><p class="numeric">${escape(content.career.period)}</p><p>연구원 · 정규직</p></div><div class="row-body"><p class="position">웹 풀스택 개발자</p><p>${content.career.summaryHtml}</p><ul class="simple-list">${content.career.details.map(item => `<li>${escape(item.title)}</li>`).join('')}</ul></div></article></section>
