@@ -8,7 +8,7 @@ window.PORTFOLIO_CONTENT = {
     "period": "2024.07 — 현재",
     "company": "오케스트로 AGI",
     "position": "웹 풀스택 개발자 · 연구원 · 정규직",
-    "summaryHtml": "AI 챗봇·지식관리 서비스를 개발하고 있습니다. 초기 G-AIDSP 1.0부터 현재 <strong>Clarinet(구 G-AIDSP 2.0)까지 제품의 웹 개발을 전담</strong>하며, DB 설계와 프론트엔드·백엔드 개발, AI API 연동부터 고객사 설치·배포까지 맡았습니다.",
+    "summaryHtml": "AI 챗봇·지식관리 서비스를 개발하고 있습니다. 초기 G-AIDSP 1.0부터 현재 <strong>Clarinet(구 G-AIDSP 2.0)까지 제품의 웹을 개발</strong>하며, DB 설계와 프론트엔드·백엔드 개발, AI API 연동부터 고객사 설치·배포까지 맡았습니다.",
     "details": [
       {
         "title": "제품 개발·고객사 서비스 구축",
@@ -183,8 +183,12 @@ window.PORTFOLIO_CONTENT = {
           "text": "신고·만족도 수집·조회, 소속·신분별 이용 통계와 활동 이력 관리"
         },
         {
-          "title": "운영·보안",
-          "text": "파일·세션·접근 정책 관리, 서비스 상태 확인 API 개발, 사이버작전사령부 보안점검 및 국군방첩사령부 보안측정 대응과 웹 취약점 조치"
+          "title": "운영",
+          "text": "파일·세션·접근 정책 관리, 서비스 상태 확인 API 개발"
+        },
+        {
+          "title": "보안",
+          "text": "OWASP ZAP 점검에서 확인된 웹 취약점 19건 조치(IDOR·저장형 XSS·세션 고정·로그 인젝션 등), 국군방첩사령부 보안측정 현장 대응"
         },
         {
           "title": "배포",
@@ -229,7 +233,7 @@ window.PORTFOLIO_CONTENT = {
           }
         ]
       },
-      "description": "한국교통안전공단의 문서·데이터 관리와 질의응답, 보고서 작성을 지원하는 LLM·RAG 기반 공용플랫폼을 구축했습니다. DB 설계부터 프론트엔드·백엔드 개발, AI API 연동과 배포까지 웹 개발 전반을 전담했으며, 이 프로젝트에서 개발한 기능은 현재 자사 제품 Clarinet의 기반이 됐습니다.",
+      "description": "한국교통안전공단의 문서·데이터 관리와 질의응답, 보고서 작성을 지원하는 LLM·RAG 기반 공용플랫폼을 구축했습니다. DB 설계, 프론트엔드·백엔드 개발, AI API 연동과 배포를 담당했으며, 이 프로젝트에서 개발한 기능은 현재 자사 제품 Clarinet의 기반이 됐습니다.",
       "development": [
         {
           "title": "문서 파싱·임베딩 처리 개선",
@@ -1114,7 +1118,7 @@ window.PORTFOLIO_CONTENT = {
     }
   ],
   "contact": {
-    "email": "gyudev1356@gmail.com",
+    "email": "gyuwork1356@gmail.com",
     "github": "https://github.com/devgyu1998"
   }
 };
